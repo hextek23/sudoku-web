@@ -30,14 +30,16 @@ body{
     padding: 8px;
     border-style: solid;
     border-width: 2px;
+    background-color: darkgrey;
 }
 
 .sudoku9{
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    right: 10px;
     align-items: center;
-    padding: 5px;
-    
+    padding: 3px;
+
 }
 
 .grid-item{
