@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'BigBlue'; /*a name to be used later*/
+    src: url("BigBlueTermPlusNerdFont-Regular.ttf") ; /* path to font*/
+}
+
+* {font-family: 'BigBlue';}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.button-container button{
+    margin: 5px;
+    font-size: 20px;
+}
+
+.sudoku-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 500px;
+    height: 500px;
+    padding: 8px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.sudoku9{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    padding: 5px;
+    
+}
+
+.grid-item{
+    position: relative;
+    width: 81%;
+    height: 85%;
+    text-align: center;
+    font-size: 170%;
+    border-style: solid; 
+}

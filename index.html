@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/style.css">
+<script src="script.js">
+<html lang="en">
+<head>
+    <div class="header-container">
+        <h1>Sudoku</h1>
+    </div>
+</head>
+    <body>
+
+        <div class="button-container">
+            <button>generate</button>
+            <button>solver</button>
+            <button>resset</button>
+        </div>
+        
+        
+        <div class="sudoku-container">
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            <div class="sudoku9">
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+                <input type="text" onkeypress="return isNumberKey(event)" class="grid-item" maxlength="1" ></input>
+            </div> 
+            
+
+        </div>
+    </body>
+
+</html>
