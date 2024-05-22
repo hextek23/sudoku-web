@@ -7,22 +7,27 @@ function isNumberKey(evt) {
 
 function generateSudokuGrid() {
   const grid = [];
-  for (let row = 0; row < 9; row++) {
-      const currentRow = [];
-      for (let col = 0; col < 9; col++) {
-          const randomNum = Math.floor(Math.random() * 9) + 1;
-          currentRow.push(randomNum);
-      }
-      grid.push(currentRow);
+  for (let row = 0; row < 9; row++){
+    const currentRow = [];
+    for (let col = 0; col < 9; col++){
+      const randomNum = Math.floor(Math.random() * 9) + 1;
+      currentRow.push(randomNum);
+    }
+    grid.push(currentRow);
   }
   return grid;
 }
 
 function displayGridOnSite(){
   const sudokuGrid = generateSudokuGrid();
-  const cell1 = document.querySelector(".s1 .g1");
-  cell1.value = sudokuGrid[0][0];
-  console.log(cell1.value);
+  let cell = 0;
+    for (let i = 0; i < 3; i++){
+      for (let j = 0; j < 3; j++){
+        cell++;
+        const inputCell = document.querySelector(`.s1 .g${cell}`)
+        inputCell.value = sudokuGrid[i][j];
+      }
+    }
   return sudokuGrid;
 }
 
