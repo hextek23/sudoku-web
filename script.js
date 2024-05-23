@@ -5,6 +5,16 @@ function isNumberKey(evt) {
     return true;
 }
 
+function generateRandom9(){
+  const arr9 = [];
+  const random9 = 0;
+  for (let i = 0; i < 9; i++){
+    random9 = Math.floor(Math.random()* 9) + 1;
+    arr9.push(random9);
+  }
+  return arr9;
+}
+
 function generateSudokuGrid() {
   const grid = [];
   for (let row = 0; row < 9; row++){
