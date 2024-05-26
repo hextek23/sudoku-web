@@ -6,22 +6,21 @@ function isNumberKey(evt) {
 }
 
 function generateRandom9(){
-  const arr9 = [];
-  const random9 = 0;
-  for (let i = 0; i < 9; i++){
-    random9 = Math.floor(Math.random()* 9) + 1;
-    arr9.push(random9);
-  }
+  const arr9 = [1,2,3,4,5,6,7,8,9];
+  
+  //TODO shuffle the array
+
   return arr9;
 }
 
 function generateSudokuGrid() {
+  const arr = generateRandom9();
   const grid = [];
   for (let row = 0; row < 9; row++){
     const currentRow = [];
     for (let col = 0; col < 9; col++){
-      const randomNum = Math.floor(Math.random() * 9) + 1;
-      currentRow.push(randomNum);
+      //const randomNum = Math.floor(Math.random() * 9) + 1;
+      currentRow.push(arr[col]);
     }
     grid.push(currentRow);
   }
