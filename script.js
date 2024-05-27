@@ -60,6 +60,7 @@ function displayGridOnSite(){
   }
   return sudokuGrid;
 }
+//easter egg
 
 let sudokuGrid = displayGridOnSite();
 console.log(sudokuGrid);
