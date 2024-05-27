@@ -6,24 +6,41 @@ function isNumberKey(evt) {
 }
 
 function generateRandom9(){
-  const arr9 = [1,2,3,4,5,6,7,8,9];
+  var arr9 = [1,2,3,4,5,6,7,8,9];
+  var copy = [];
   
   //TODO shuffle the array
+  n = arr9.length;
+  while (n){
+    // Pick a remaining element
+    i = Math.floor(Math.random() * arr9.length);
 
-  return arr9;
+    //If not alreadey shuffled, move it to the new array
+    if(i in arr9){
+      copy.push(arr9[i]);
+      delete arr9[i];
+      n--;
+    }
+  }
+  return copy;
 }
 
+//generates a full sudoku grid 9x9
 function generateSudokuGrid() {
   const arr = generateRandom9();
   const grid = [];
-  for (let row = 0; row < 9; row++){
+  var count9 = 0; //the array or random 9 vals is a 1dimensional array so the for loop variables wont work for the index
+  for (let row = 0; row < 3; row++){
     const currentRow = [];
-    for (let col = 0; col < 9; col++){
-      //const randomNum = Math.floor(Math.random() * 9) + 1;
-      currentRow.push(arr[col]);
+    for (let col = 0; col < 3; col++){
+      count9++;
+      currentRow.push(arr[count9 - 1]);
     }
     grid.push(currentRow);
   }
+
+  //TODO add functionality to generate the other diagonal 3x3's
+
   return grid;
 }
 
