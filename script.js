@@ -9,7 +9,7 @@ function generateRandom9(){
   var arr9 = [1,2,3,4,5,6,7,8,9];
   var copy = [];
   
-  //TODO shuffle the array
+  //shuffle the array
   n = arr9.length;
   while (n){
     // Pick a remaining element
@@ -25,37 +25,41 @@ function generateRandom9(){
   return copy;
 }
 
-//generates a full sudoku grid 9x9
-function generateSudokuGrid() {
-  const arr = generateRandom9();
-  const grid = [];
-  var count9 = 0; //the array or random 9 vals is a 1dimensional array so the for loop variables wont work for the index
-  for (let row = 0; row < 3; row++){
-    const currentRow = [];
-    for (let col = 0; col < 3; col++){
-      count9++;
-      currentRow.push(arr[count9 - 1]);
+
+function generateSudokuGrid() {//generates a full sudoku grid 9x9
+  
+  var grid = []; //9x9 the box(3x3) are the rows of this grid
+  
+  for (let i = 0; i < 9; i++){
+    if(i == 0 || i == 4 || i == 8){// this generates the diagonals of the sudoku grid these are independant of each other wich means that you can generate these randomly
+      var arr = generateRandom9();
+      grid.push(arr);
     }
-    grid.push(currentRow);
+    else{
+      grid.push([0,0,0,0,0,0,0,0,0])
+    }
   }
-
-  //TODO add functionality to generate the other diagonal 3x3's
-
   return grid;
 }
 
 function displayGridOnSite(){
+
   const sudokuGrid = generateSudokuGrid();
-  let cell = 0;
-    for (let i = 0; i < 3; i++){
-      for (let j = 0; j < 3; j++){
-        cell++;
-        const inputCell = document.querySelector(`.s1 .g${cell}`)
-        inputCell.value = sudokuGrid[i][j];
-      }
+  var cell = 1;
+  var box = 1; // a box is a 3x3 idk if this is the actual term ¯\_(ツ)_/¯
+
+  for (let i = 0; i < 9; i++){
+    for (let j = 0; j < 9; j++){
+      
+      let inputCell = document.querySelector(`.s${box} .g${cell}`)
+      inputCell.value = sudokuGrid[i][j];
+      cell++;
     }
+    box++;
+    cell=1;
+  }
   return sudokuGrid;
 }
 
-const sudokuGrid = displayGridOnSite();
+let sudokuGrid = displayGridOnSite();
 console.log(sudokuGrid);
