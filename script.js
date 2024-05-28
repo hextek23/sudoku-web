@@ -61,6 +61,7 @@ function displayGridOnSite(){
   return sudokuGrid;
 }
 //easter egg
+//2easter egg
 
 let sudokuGrid = displayGridOnSite();
 console.log(sudokuGrid);
