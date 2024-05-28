@@ -30,15 +30,48 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
   var grid = []; //9x9 the box(3x3) are the rows of this grid
   
-  for (let i = 0; i < 9; i++){
-    if(i == 0 || i == 4 || i == 8){// this generates the diagonals of the sudoku grid these are independant of each other wich means that you can generate these randomly
-      var arr = generateRandom9();
-      grid.push(arr);
-    }
-    else{
-      grid.push([0,0,0,0,0,0,0,0,0])
+  // for (let i = 0; i < 9; i++){
+  //   if(i == 0 || i == 4 || i == 8){// this generates the diagonals of the sudoku grid these are independant of each other wich means that you can generate these randomly
+  //     var arr = generateRandom9();
+  //     grid.push(arr);
+  //   }
+  //   else{
+  //     grid.push([0,0,0,0,0,0,0,0,0])
+  //   }
+  // }
+
+  var arr = generateRandom9();
+  var arrCount1 =0;
+  for (let row = 0; row < 9; row++){
+    for (let col = 0; col < 9; col++){
+      if(row < 3 && col < 3){
+        grid[row][col] = arr[arrCount1];
+        arrCount1++;
+      }else if (row < 6 && col < 6 && row > 2 && col > 2){
+        grid[row][col]
+      }
     }
   }
+
+
+  // for (let row = 0; row < 9; row++){
+  //   for (let col = 0; col < 9; col++){
+  //     if (grid[row][col] == 0){
+  //       arrHorizontal = 
+  //       for (let i = 1; i < 10; i++){
+
+  //         if (i ){
+
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  
+
+
+
   return grid;
 }
 
