@@ -41,14 +41,34 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
   // }
 
   var arr = generateRandom9();
-  var arrCount1 =0;
+  var usedIndex = [];
   for (let row = 0; row < 9; row++){
     for (let col = 0; col < 9; col++){
       if(row < 3 && col < 3){
-        grid[row][col] = arr[arrCount1];
-        arrCount1++;
+        let rindex = Math.floor(Math.random() * 9);
+        while(usedIndex.includes(rindex)){
+          rindex = Math.floor(Math.random() * 9);
+        }
+        grid[row][col] = arr[rindex];
+        usedIndex.push(rindex);
       }else if (row < 6 && col < 6 && row > 2 && col > 2){
-        grid[row][col]
+        usedIndex = [];
+        let rindex = Math.floor(Math.random() * 9);
+        while(usedIndex.includes(rindex)){
+          rindex = Math.floor(Math.random() * 9);
+        }
+        grid[row][col] = arr[rindex];
+        usedIndex.push(rindex);
+      }else if(row < 9 && col < 9 && row > 5 && col > 5){
+        usedIndex = [];
+        let rindex = Math.floor(Math.random() * 9);
+        while(usedIndex.includes(rindex)){
+          rindex = Math.floor(Math.random() * 9);
+        }
+        grid[row][col] = arr[rindex];
+        usedIndex = [];
+      }else{
+        grid[row][col] = 0;
       }
     }
   }
