@@ -80,6 +80,115 @@ function generateSudokuDiagonals(){
   return grid;
 }
 
+function checkRow(grid, row, input){
+  if(grid[row].includes(input)){
+    return false;
+  }else{
+    return true;  
+  }
+}
+
+function checkColumn(grid, col, input){
+  for(let row = 0; row < 9; row++){
+    if(grid[row][col] == input){
+      return false;
+    }
+  }
+  return true;
+}
+
+function checkBox(grid, row, col, input){
+  if(row < 3){
+    //check for first 3
+    if(col<3){
+      for(let r =0; r < 3; r++){
+        for(let c = 0; c < 3; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }else if(col<6){
+      for(let r =0; r < 3; r++){
+        for(let c = 3; c < 6; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }else{
+      for(let r =0; r < 3; r++){
+        for(let c = 6; c < 9; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+  }else if(row < 6){ //row check
+    if(col<3){
+      for(let r =3; r < 6; r++){
+        for(let c = 0; c < 3; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }else if(col<6){
+      for(let r =3; r < 6; r++){
+        for(let c = 3; c < 6; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }else{
+      for(let r =3; r < 6; r++){
+        for(let c = 6; c < 9; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+  }else{ // last else
+    if(col<3){
+      for(let r =6; r < 9; r++){
+        for(let c = 0; c < 3; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }else if(col<6){
+      for(let r =6; r < 9; r++){
+        for(let c = 3; c < 6; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }else{
+      for(let r =6; r < 9; r++){
+        for(let c = 6; c < 9; c++){
+          if(grid[r][c] == input){
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+  }
+}
+
 
 function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
@@ -91,16 +200,26 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
     for(let col = 0; col < 9; col++){
       if(grid[row][col] == 0){ //if the cell to fill is 0 which means it hasn't been filled yet
         for(let input = 1; input < 10; input++){
-          if(!grid[row].includes(input)){ // if the num to input is not in the row you can check the column
-            for(let column = 0; column < 9; column++){
-              if(!grid[row][column] == input){
-                colCheck++;
-              }
-            }
-            if(colCheck == 9){
-              grid[row][col] = input; //this does not work for some reason
-            }
+
+          if(checkRow(grid, row, input) && checkColumn(grid, col, input) && checkBox(grid, row, col, input)){
+            grid[row][col] = input;
+          }else{
+            
           }
+
+
+
+          // if(!grid[row].includes(input)){ // if the num to input is not in the row you can check the column
+            
+          //   for(let column = 0; column < 9; column++){
+          //     if(!grid[row][column] == input){
+          //       colCheck++;
+          //     }
+          //   }
+          //   if(colCheck == 9){
+          //     grid[row][col] = input; //this does not work for some reason
+          //   }
+          // }
         }
       }
     }
