@@ -194,36 +194,53 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
   grid = generateSudokuDiagonals();
 
-  var colCheck = 0;
-
   for(let row = 0; row < 9; row++){
     for(let col = 0; col < 9; col++){
-      if(grid[row][col] == 0){ //if the cell to fill is 0 which means it hasn't been filled yet
-        for(let input = 1; input < 10; input++){
+      if(row < 4 && col < 4){
+        row = 4;
+        col = 4;
+      }//else if(row < 7 && row > 3 && col < 7 && col > 3){
+      //   row = 4;
+      //   col = 7;
+      // }
+      for(let input = 1; input < 10; input++){
+        if(checkRow(grid,row,input) && checkColumn(grid, col, input) && checkBox(grid, row, col, input)){
+          grid[row][col] = input;
+        }else if(input == 9){
 
-          if(checkRow(grid, row, input) && checkColumn(grid, col, input) && checkBox(grid, row, col, input)){
-            grid[row][col] = input;
-          }else{
-            
-          }
-
-
-
-          // if(!grid[row].includes(input)){ // if the num to input is not in the row you can check the column
-            
-          //   for(let column = 0; column < 9; column++){
-          //     if(!grid[row][column] == input){
-          //       colCheck++;
-          //     }
-          //   }
-          //   if(colCheck == 9){
-          //     grid[row][col] = input; //this does not work for some reason
-          //   }
-          // }
         }
       }
     }
   }
+
+  // for(let row = 0; row < 9; row++){
+  //   for(let col = 0; col < 9; col++){
+  //     if(grid[row][col] == 0){ //if the cell to fill is 0 which means it hasn't been filled yet
+  //       for(let input = 1; input < 10; input++){
+
+  //         if(checkRow(grid, row, input) && checkColumn(grid, col, input) && checkBox(grid, row, col, input)){
+  //           grid[row][col] = input;
+  //         }else if(input == 9){
+            
+  //         }
+
+
+
+  //         // if(!grid[row].includes(input)){ // if the num to input is not in the row you can check the column
+            
+  //         //   for(let column = 0; column < 9; column++){
+  //         //     if(!grid[row][column] == input){
+  //         //       colCheck++;
+  //         //     }
+  //         //   }
+  //         //   if(colCheck == 9){
+  //         //     grid[row][col] = input; //this does not work for some reason
+  //         //   }
+  //         // }
+  //       }
+  //     }
+  //   }
+  // }
 
 
   return grid;
