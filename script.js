@@ -385,6 +385,19 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
   //     }
   //   }
   // }
+  //         //   for(let column = 0; column < 9; column++){
+  //         //     if(!grid[row][column] == input){
+  //         //       colCheck++;
+  //         //     }
+  //         //   }
+  //         //   if(colCheck == 9){
+  //         //     grid[row][col] = input; //this does not work for some reason
+  //         //   }
+  //         // }
+  //       }
+  //     }
+  //   }
+  // }
 
 
   return grid;
