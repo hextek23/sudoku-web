@@ -193,25 +193,169 @@ function checkBox(grid, row, col, input){
 function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
   grid = generateSudokuDiagonals();
+  goBackIdiot = 0;
+  //genDiamond1();
 
-  for(let row = 0; row < 9; row++){
-    for(let col = 0; col < 9; col++){
-      if(row < 4 && col < 4){
-        row = 4;
-        col = 4;
-      }//else if(row < 7 && row > 3 && col < 7 && col > 3){
-      //   row = 4;
-      //   col = 7;
-      // }
-      for(let input = 1; input < 10; input++){
-        if(checkRow(grid,row,input) && checkColumn(grid, col, input) && checkBox(grid, row, col, input)){
-          grid[row][col] = input;
-        }else if(input == 9){
-
+  function genDiamond1(){
+    goBackIdiot = 0;
+    arr = generateRandom9();
+  
+    for(let row = 0; row < 3; row++){
+      for(let col = 3; col < 6; col++){
+        console.log(row + "and " + col);
+        for(let input = 0; input < 9; input++){
+          if(checkRow(grid, row, arr[input]) && checkColumn(grid, col, arr[input]) && checkBox(grid, row, col, arr[input])){
+            grid[row][col] = arr[input];
+          }else if(input == 8){
+            
+          }
         }
       }
     }
+    for(let row = 0; row < 3; row++){
+      for(let col = 3; col < 6; col++){
+        if(grid[row][col] == 0){
+          goBackIdiot++;
+        }
+      }
+    }
+    if(goBackIdiot > 0){
+      genDiamond1();
+    }else{
+      genDiamond2();
+    }
+    
   }
+
+  function genDiamond2(){
+    goBackIdiot = 0;
+    arr = generateRandom9();
+  
+    for(let row = 0; row < 3; row++){
+      for(let col = 6; col < 9; col++){
+        console.log(row + "and " + col);
+        for(let input = 0; input < 9; input++){
+          if(checkRow(grid, row, arr[input]) && checkColumn(grid, col, arr[input]) && checkBox(grid, row, col, arr[input])){
+            grid[row][col] = arr[input];
+          }else if(input == 8){
+            
+          }
+        }
+      }
+    }
+    for(let row = 0; row < 3; row++){
+      for(let col = 6; col < 9; col++){
+        if(grid[row][col] == 0){
+          goBackIdiot++;
+        }
+      }
+    }
+    if(goBackIdiot > 0){
+      genDiamond1();
+    }else{
+      genDiamond3();
+    }
+    
+  }
+
+
+
+  function genDiamond3(){
+    goBackIdiot = 0;
+    arr = generateRandom9();
+  
+    for(let row = 3; row < 6; row++){
+      for(let col = 0; col < 3; col++){
+        console.log(row + "and " + col);
+        for(let input = 0; input < 9; input++){
+          if(checkRow(grid, row, arr[input]) && checkColumn(grid, col, arr[input]) && checkBox(grid, row, col, arr[input])){
+            grid[row][col] = arr[input];
+          }else if(input == 8){
+            
+          }
+        }
+      }
+    }
+    for(let row = 3; row < 6; row++){
+      for(let col = 0; col < 3; col++){
+        if(grid[row][col] == 0){
+          goBackIdiot++;
+        }
+      }
+    }
+    if(goBackIdiot > 0){
+      genDiamond2();
+    }else{
+      genDiamond4();
+    }
+    
+  }
+
+  function genDiamond4(){
+    goBackIdiot = 0;
+    arr = generateRandom9();
+  
+    for(let row = 3; row < 6; row++){
+      for(let col = 6; col < 9; col++){
+        console.log(row + "and " + col);
+        for(let input = 0; input < 9; input++){
+          if(checkRow(grid, row, arr[input]) && checkColumn(grid, col, arr[input]) && checkBox(grid, row, col, arr[input])){
+            grid[row][col] = arr[input];
+          }else if(input == 8){
+            
+          }
+        }
+      }
+    }
+    for(let row = 3; row < 6; row++){
+      for(let col = 6; col < 9; col++){
+        if(grid[row][col] == 0){
+          goBackIdiot++;
+        }
+      }
+    }
+    if(goBackIdiot > 0){
+      genDiamond3();
+    }else{
+      genDiamond5();
+    }
+  }
+
+  function genDiamond5(){
+    goBackIdiot = 0;
+    arr = generateRandom9();
+  
+    for(let row = 6; row < 9; row++){
+      for(let col = 0; col < 3; col++){
+        console.log(row + "and " + col);
+        for(let input = 0; input < 9; input++){
+          if(checkRow(grid, row, arr[input]) && checkColumn(grid, col, arr[input]) && checkBox(grid, row, col, arr[input])){
+            grid[row][col] = arr[input];
+          }else if(input == 8){
+            
+          }
+        }
+      }
+    }
+    for(let row = 6; row < 9; row++){
+      for(let col = 0; col < 3; col++){
+        if(grid[row][col] == 0){
+          goBackIdiot++;
+        }
+      }
+    }
+    if(goBackIdiot > 0){
+      genDiamond4();
+    }else{
+      genDiamond6();
+    }
+  }
+
+  function genDiamond6(){
+    
+  }
+  
+  
 
   // for(let row = 0; row < 9; row++){
   //   for(let col = 0; col < 9; col++){
