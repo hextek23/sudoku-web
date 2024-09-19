@@ -192,9 +192,49 @@ function checkBox(grid, row, col, input){
 
 function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
+  let gridToFill = [
+    [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8],
+    [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8],
+    [2, 3], [2, 4], [2, 5], [2, 6], [2, 7], [2, 8],
+    [3, 0], [3, 1], [3, 2], [3, 6], [3, 7], [3, 8],
+    [4, 0], [4, 1], [4, 2], [4, 6], [4, 7], [4, 8],
+    [5, 0], [5, 1], [5, 2], [5, 6], [5, 7], [5, 8],
+    [6, 0], [6, 1], [6, 2], [6, 3], [6, 4], [6, 5],
+    [7, 0], [7, 1], [7, 2], [7, 3], [7, 4], [7, 5],
+    [8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5]
+];
+
   grid = generateSudokuDiagonals();
   goBackIdiot = 0;
   //genDiamond1();
+  recursiveBackAlgo();
+
+  function recursiveBackAlgo() {
+    for (let i = 0; i < gridToFill.length;) {  // Loop through the grid cells to be filled
+      let row = gridToFill[i][0];
+      let col = gridToFill[i][1];
+      let filled = false;
+      
+      for (let input = grid[row][col] + 1; input <= 9; input++) {  // Start with the next possible number
+        if (checkRow(grid, row, input) && checkColumn(grid, col, input) && checkBox(grid, row, col, input)) {
+          grid[row][col] = input;  // Place valid input
+          filled = true;  // Mark that we filled this cell
+          break;  // Move to the next cell
+        }
+      }
+      
+      if (!filled) {  // No valid number found
+        grid[row][col] = 0;  // Reset current cell
+        
+        // Backtrack: move to the previous filled cell
+        i--;
+      } else {
+        // Move to the next cell
+        i++;
+      }
+    }
+  }
+  
 
   function genDiamond1(){
     goBackIdiot = 0;
@@ -251,7 +291,7 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
       }
     }
     if(goBackIdiot > 0){
-      genDiamond1();
+      //genDiamond1();
     }else{
       genDiamond3();
     }
@@ -284,7 +324,7 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
       }
     }
     if(goBackIdiot > 0){
-      genDiamond2();
+      //genDiamond2();
     }else{
       genDiamond4();
     }
@@ -315,7 +355,7 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
       }
     }
     if(goBackIdiot > 0){
-      genDiamond3();
+      //genDiamond3();
     }else{
       genDiamond5();
     }
@@ -345,14 +385,40 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
       }
     }
     if(goBackIdiot > 0){
-      genDiamond4();
+      //genDiamond4();
     }else{
       genDiamond6();
     }
   }
 
   function genDiamond6(){
-    
+    goBackIdiot = 0;
+    arr = generateRandom9();
+  
+    for(let row = 6; row < 9; row++){
+      for(let col = 6; col < 9; col++){
+        console.log(row + "and " + col);
+        for(let input = 0; input < 9; input++){
+          if(checkRow(grid, row, arr[input]) && checkColumn(grid, col, arr[input]) && checkBox(grid, row, col, arr[input])){
+            grid[row][col] = arr[input];
+          }else if(input == 8){
+            
+          }
+        }
+      }
+    }
+    for(let row = 6; row < 9; row++){
+      for(let col = 6; col < 9; col++){
+        if(grid[row][col] == 0){
+          goBackIdiot++;
+        }
+      }
+    }
+    if(goBackIdiot > 0){
+      //genDiamond5();
+    }else{
+      
+    }
   }
   
   
