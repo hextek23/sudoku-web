@@ -1,7 +1,19 @@
+document.addEventListener("selectionchange", function() {
+  let selection = window.getSelection();
+  
+  if (!selection.isCollapsed) {  // There is a selection
+      let selectedElement = selection.anchorNode.parentElement; // Get parent of the selected text
+      console.log("Selected element's class:", selectedElement.className);
+  } else {
+      console.log("Text deselected");
+  }
+});
+
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
       return false;
+    console.log(fullGrid);
     return true;
 }
 
@@ -192,6 +204,7 @@ function checkBox(grid, row, col, input){
 
 function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
+  //grid of cells to fill recursively
   let gridToFill = [
     [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8],
     [1, 3], [1, 4], [1, 5], [1, 6], [1, 7], [1, 8],
@@ -205,9 +218,9 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
 ];
 
   grid = generateSudokuDiagonals();
-  goBackIdiot = 0;
-  //genDiamond1();
+  fullGrid = grid;
   recursiveBackAlgo();
+  removeRandomCells();
 
   function recursiveBackAlgo() {
     for (let i = 0; i < gridToFill.length;) {  // Loop through the grid cells to be filled
@@ -235,6 +248,12 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
     }
   }
 
+  function removeRandomCells(){
+    for(let i = 0; i < 32; i ++){
+      grid[Math.floor(Math.random() * 8)][Math.floor(Math.random() * 8)] = null;
+    }
+  }
+
 
   return grid;
 }
@@ -242,6 +261,7 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
 function displayGridOnSite(){
 
   const sudokuGrid = generateSudokuGrid();
+
   var cell = 0;
   var box = 0; // a box is a 3x3 idk if this is the actual term ¯\_(ツ)_/¯
 
