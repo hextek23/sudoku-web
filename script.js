@@ -1,13 +1,5 @@
-document.addEventListener("selectionchange", function() {
-  let selection = window.getSelection();
-  
-  if (!selection.isCollapsed) {  // There is a selection
-      let selectedElement = selection.anchorNode.parentElement; // Get parent of the selected text
-      console.log("Selected element's class:", selectedElement.className);
-  } else {
-      console.log("Text deselected");
-  }
-});
+
+const fullGrid = generateSudokuGrid();
 
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode
@@ -218,9 +210,7 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
 ];
 
   grid = generateSudokuDiagonals();
-  fullGrid = grid;
   recursiveBackAlgo();
-  removeRandomCells();
 
   function recursiveBackAlgo() {
     for (let i = 0; i < gridToFill.length;) {  // Loop through the grid cells to be filled
@@ -248,19 +238,21 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
     }
   }
 
-  function removeRandomCells(){
-    for(let i = 0; i < 32; i ++){
-      grid[Math.floor(Math.random() * 8)][Math.floor(Math.random() * 8)] = null;
-    }
-  }
+  
 
 
   return grid;
 }
 
-function displayGridOnSite(){
+function removeRandomCells(grid){
+  for(let i = 0; i < 32; i ++){
+    grid[Math.floor(Math.random() * 8)][Math.floor(Math.random() * 8)] = null;
+  }
+}
 
-  const sudokuGrid = generateSudokuGrid();
+function displayGridOnSite(grid){
+
+  const sudokuGrid = grid;
 
   var cell = 0;
   var box = 0; // a box is a 3x3 idk if this is the actual term ¯\_(ツ)_/¯
@@ -270,7 +262,12 @@ function displayGridOnSite(){
       for (let j = 1; j < 4; j++){
         switch (box) {
           case 0:
-            var inputCell = document.querySelector(`.s${i} .g${j}`);
+            var inputCell = document.querySelector(`.s${i} .g${j}`); // idk how to fix this dont matter for now
+            inputCell.addEventListener("selectionchange", function() {
+              console.log(inputCell.value);
+              console.log(fullGrid);
+              console.log("indexes: ", i, j);
+            });
             inputCell.value = sudokuGrid[box][cell];
             cell++
             break;
@@ -288,7 +285,6 @@ function displayGridOnSite(){
             var inputCell = document.querySelector(`.s${i+3} .g${j}`);
             inputCell.value = sudokuGrid[box][cell];
             cell++
-
             break;
           case 4:
             var inputCell = document.querySelector(`.s${i+3} .g${j+3}`);
@@ -325,7 +321,6 @@ function displayGridOnSite(){
   return sudokuGrid;
 }
 
-
-
-let sudokuGrid = displayGridOnSite();
-console.log(sudokuGrid);
+console.log(fullGrid)
+removeRandomCells(fullGrid);
+displayGridOnSite(fullGrid);
