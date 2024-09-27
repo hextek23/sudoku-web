@@ -324,6 +324,20 @@ function displayGridOnSite(grid){
   return sudokuGrid;
 }
 
+var solverBtn = document.getElementById("solver");
+solverBtn.addEventListener("click", solver);
+
+function solver(){
+  let background = document.querySelector(`body`);
+  console.log("this is the partial", partialgrid);
+  console.log("this is hte full", fullGrid);
+  if(partialgrid == fullGrid){
+    background.style.color = "green";
+  }else{
+    background.style.color = "red";
+  }
+}
+
 console.log(fullGrid)
 partialgrid = removeRandomCells(fullGrid);
 displayGridOnSite(partialgrid);
