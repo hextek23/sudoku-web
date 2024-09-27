@@ -1,4 +1,3 @@
-
 const fullGrid = generateSudokuGrid();
 
 function isNumberKey(evt) {
@@ -240,14 +239,18 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
 
   
 
-
+  console.log(grid); //marked
   return grid;
 }
 
-function removeRandomCells(grid){
-  for(let i = 0; i < 32; i ++){
-    grid[Math.floor(Math.random() * 8)][Math.floor(Math.random() * 8)] = null;
+function removeRandomCells(grid) {
+  // Create a deep copy of the grid to avoid modifying the original one
+  let gridCopy = grid.map(row => row.slice()); // Deep copy
+
+  for (let i = 0; i < 32; i++) {
+      gridCopy[Math.floor(Math.random() * 9)][Math.floor(Math.random() * 9)] = null;
   }
+  return gridCopy;
 }
 
 function displayGridOnSite(grid){
@@ -322,5 +325,5 @@ function displayGridOnSite(grid){
 }
 
 console.log(fullGrid)
-removeRandomCells(fullGrid);
-displayGridOnSite(fullGrid);
+partialgrid = removeRandomCells(fullGrid);
+displayGridOnSite(partialgrid);
