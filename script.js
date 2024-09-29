@@ -1,10 +1,14 @@
 const fullGrid = generateSudokuGrid();
 
 function isNumberKey(evt) {
+  console.log(evt.target.className);
+  console.log(evt.target.parentElement.className);
+  //TODO fill partialgrid from this method
+  
+
     var charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
       return false;
-    console.log(fullGrid);
     return true;
 }
 
@@ -243,7 +247,7 @@ function generateSudokuGrid() {//generates a full sudoku grid 9x9
   return grid;
 }
 
-function removeRandomCells(grid) {
+function removeRandomCells(grid) { //TODO cells that aren't empty at start should be unchangable
   // Create a deep copy of the grid to avoid modifying the original one
   let gridCopy = grid.map(row => row.slice()); // Deep copy
 
@@ -265,12 +269,7 @@ function displayGridOnSite(grid){
       for (let j = 1; j < 4; j++){
         switch (box) {
           case 0:
-            var inputCell = document.querySelector(`.s${i} .g${j}`); // idk how to fix this dont matter for now
-            inputCell.addEventListener("selectionchange", function() {
-              console.log(inputCell.value);
-              console.log(fullGrid);
-              console.log("indexes: ", i, j);
-            });
+            var inputCell = document.querySelector(`.s${i} .g${j}`);
             inputCell.value = sudokuGrid[box][cell];
             cell++
             break;
