@@ -9,8 +9,196 @@ function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
       return false;
-    return true;
+
+    return true; 
+    
 }
+
+function fillPartialGrid(evt){
+  if(evt.target.parentElement.className == "sudoku9 s1"){ // i chose wrong classnames in my html and i don't want to refactor the entire code so this will have to do
+    if(evt.target.className.includes("g1")){
+      partialgrid[0][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[0][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[0][2] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[1][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[1][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[1][2] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[2][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[2][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[2][2] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s2")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[0][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[0][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[0][5] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[1][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[1][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[1][5] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[2][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[2][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[2][5] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s3")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[0][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[0][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[0][8] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[1][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[1][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[1][8] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[2][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[2][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[2][8] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s4")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[3][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[3][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[3][2] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[4][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[4][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[4][2] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[5][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[5][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[5][2] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s5")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[3][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[3][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[3][5] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[4][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[4][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[4][5] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[5][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[5][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[5][5] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s6")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[3][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[3][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[3][8] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[4][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[4][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[4][8] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[5][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[5][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[5][8] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s7")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[6][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[6][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[6][2] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[7][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[7][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[7][2] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[8][0] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[8][1] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[8][2] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s8")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[6][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[6][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[6][5] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[7][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[7][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[7][5] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[8][3] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[8][4] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[8][5] = parseInt(evt.target.value);
+    }
+  }else if(evt.target.parentElement.className.includes("s9")){
+    if(evt.target.className.includes("g1")){
+      partialgrid[6][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g2")){
+      partialgrid[6][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g3")){
+      partialgrid[6][8] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g4")){
+      partialgrid[7][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g5")){
+      partialgrid[7][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g6")){
+      partialgrid[7][8] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g7")){
+      partialgrid[8][6] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g8")){
+      partialgrid[8][7] = parseInt(evt.target.value);
+    }else if(evt.target.className.includes("g9")){
+      partialgrid[8][8] = parseInt(evt.target.value);
+    }
+  }
+  return true;
+}
+
 
 function generateRandom9(){
   var arr9 = [1,2,3,4,5,6,7,8,9];
@@ -330,11 +518,30 @@ function solver(){
   let background = document.querySelector(`body`);
   console.log("this is the partial", partialgrid);
   console.log("this is hte full", fullGrid);
-  if(partialgrid == fullGrid){
-    background.style.color = "green";
-  }else{
-    background.style.color = "red";
+  function compareGrids(fullGrid, partialgrid) {
+    // Iterate over every row and column of the grids
+    for (let row = 0; row < 9; row++) {
+      for (let col = 0; col < 9; col++) {
+        // If the value in the partial grid doesn't match the full grid, return false
+        if (partialgrid[row][col] !== fullGrid[row][col]) {
+          return false; // Mismatch found
+        }
+      }
+    }
+    // If no mismatches were found, the grids are identical
+    return true;
   }
+  
+  // Example usage
+  const isGridsEqual = compareGrids(fullGrid, partialgrid);
+  if (isGridsEqual) {
+    console.log("Congratulations! The player's grid is correct.");
+    background.style.background = "green";
+  } else {
+    console.log("There are some mistakes in the player's grid.");
+    background.style.background = "red";
+  }
+  
 }
 
 console.log(fullGrid)
