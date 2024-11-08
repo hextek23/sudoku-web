@@ -199,7 +199,10 @@ function removeRandomCells(grid) { //TODO cells that aren't empty at start shoul
 }
 
 function displayGridOnSite(grid){
-
+  console.log("grid is ");
+  
+  console.log(  grid);
+  
   const sudokuGrid = grid;
 
   var cell = 0;
@@ -208,11 +211,16 @@ function displayGridOnSite(grid){
   for (box; box < 9; box++){
     for (let i = 1; i < 4; i++){
       for (let j = 1; j < 4; j++){
-        let i_offset = (box / 3) * 3
-        let j_offset = (box % 3) * 3
+        console.log("box is " + box +" cell is " + cell);
+        let i_offset = Math.floor(box / 3) * 3
+        let j_offset = Math.floor(box % 3) * 3
+        console.log("j offset is " + i_offset + " i offset is " + j_offset);
         var inputCell = document.querySelector(`.s${i + i_offset} .g${j + j_offset}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
+        console.log(sudokuGrid[box][cell]);
+        
+        inputCell.value = sudokuGrid[box][cell];
+        cell++
+
       }
     }
     cell=0;
