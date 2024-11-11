@@ -1,8 +1,8 @@
 const fullGrid = generateSudokuGrid();
 
 function isNumberKey(evt) {
-  console.log(evt.target.className);
-  console.log(evt.target.parentElement.className);
+  // console.log(evt.target.className);
+  // console.log(evt.target.parentElement.className);
   //TODO fill partialgrid from this method
   
 
@@ -14,190 +14,21 @@ function isNumberKey(evt) {
     
 }
 
-function fillPartialGrid(evt){
-  if(evt.target.parentElement.className == "sudoku9 s1"){ // i chose wrong classnames in my html and i don't want to refactor the entire code so this will have to do
-    if(evt.target.className.includes("g1")){
-      partialgrid[0][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[0][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[0][2] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[1][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[1][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[1][2] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[2][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[2][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[2][2] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s2")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[0][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[0][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[0][5] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[1][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[1][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[1][5] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[2][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[2][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[2][5] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s3")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[0][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[0][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[0][8] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[1][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[1][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[1][8] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[2][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[2][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[2][8] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s4")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[3][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[3][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[3][2] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[4][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[4][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[4][2] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[5][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[5][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[5][2] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s5")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[3][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[3][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[3][5] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[4][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[4][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[4][5] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[5][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[5][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[5][5] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s6")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[3][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[3][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[3][8] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[4][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[4][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[4][8] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[5][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[5][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[5][8] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s7")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[6][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[6][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[6][2] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[7][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[7][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[7][2] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[8][0] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[8][1] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[8][2] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s8")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[6][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[6][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[6][5] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[7][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[7][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[7][5] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[8][3] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[8][4] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[8][5] = parseInt(evt.target.value);
-    }
-  }else if(evt.target.parentElement.className.includes("s9")){
-    if(evt.target.className.includes("g1")){
-      partialgrid[6][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g2")){
-      partialgrid[6][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g3")){
-      partialgrid[6][8] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g4")){
-      partialgrid[7][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g5")){
-      partialgrid[7][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g6")){
-      partialgrid[7][8] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g7")){
-      partialgrid[8][6] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g8")){
-      partialgrid[8][7] = parseInt(evt.target.value);
-    }else if(evt.target.className.includes("g9")){
-      partialgrid[8][8] = parseInt(evt.target.value);
-    }
-  }
-  return true;
+function fillPartialGrid(evt) {
+  let grid_offset = evt.target.parentElement.classList[1][1] - 1
+  // console.log(grid_offset);
+
+  let cell_classes = evt.target.classList[1][1] - 1
+  
+  let x = (cell_classes ) % 3 + (Math.floor(grid_offset % 3)) * 3 // calculeerd x coordinate gebaseerd op de cell die het in is in de 3*3 grid en dan telt de offset van waar het is in het grooter 3*3 grid waar de 3*3 cells in zitten
+  let y = Math.floor((cell_classes   ) / 3) + (Math.floor(grid_offset / 3)) * 3 // in (Math.floor(grid_offset / 3)) * 3 since in de grid de y coordinate allen maar verandert om de 3 grids dat je passert en dan de y coordinate met 3 wordt verhoogt, dus de y coordinat veranderd allen wanner de grid offset 4 of 7 is since je dan naar de 2de en 3de rij gaat in de grid van grids, het is toevallig dat de y offset ook verhoogt met 3  
+  let z = grid_offset
+  partialgrid[y][x] = parseInt(evt.target.value);
+  // console.log("The y coordinate is " + y + " the x coordinate is  " + x + " z coordinate is " + z);
+  // console.log(partialgrid);
+  
 }
+
 
 
 function generateRandom9(){
@@ -291,99 +122,21 @@ function checkColumn(grid, col, input){
   }
   return true;
 }
-
 function checkBox(grid, row, col, input){
-  if(row < 3){
-    //check for first 3
-    if(col<3){
-      for(let r =0; r < 3; r++){
-        for(let c = 0; c < 3; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
+  let c_offset = Math.floor(col / 3) * 3 
+  let r_offset = Math.floor(row / 3) * 3 
+
+  
+  for(let r = r_offset; r < r_offset + 3; r++){
+    for(let c = c_offset; c < c_offset + 3; c++){
+      if(grid[r][c] == input){
+        return false;
       }
-      return true;
-    }else if(col<6){
-      for(let r =0; r < 3; r++){
-        for(let c = 3; c < 6; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }else{
-      for(let r =0; r < 3; r++){
-        for(let c = 6; c < 9; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }
-  }else if(row < 6){ //row check
-    if(col<3){
-      for(let r =3; r < 6; r++){
-        for(let c = 0; c < 3; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }else if(col<6){
-      for(let r =3; r < 6; r++){
-        for(let c = 3; c < 6; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }else{
-      for(let r =3; r < 6; r++){
-        for(let c = 6; c < 9; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }
-  }else{ // last else
-    if(col<3){
-      for(let r =6; r < 9; r++){
-        for(let c = 0; c < 3; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }else if(col<6){
-      for(let r =6; r < 9; r++){
-        for(let c = 3; c < 6; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
-    }else{
-      for(let r =6; r < 9; r++){
-        for(let c = 6; c < 9; c++){
-          if(grid[r][c] == input){
-            return false;
-          }
-        }
-      }
-      return true;
     }
   }
-}
+  return true;
 
+}
 
 function generateSudokuGrid() {//generates a full sudoku grid 9x9
   
@@ -446,7 +199,10 @@ function removeRandomCells(grid) { //TODO cells that aren't empty at start shoul
 }
 
 function displayGridOnSite(grid){
-
+  console.log("grid is ");
+  
+  console.log(  grid);
+  
   const sudokuGrid = grid;
 
   var cell = 0;
@@ -455,55 +211,16 @@ function displayGridOnSite(grid){
   for (box; box < 9; box++){
     for (let i = 1; i < 4; i++){
       for (let j = 1; j < 4; j++){
-        switch (box) {
-          case 0:
-            var inputCell = document.querySelector(`.s${i} .g${j}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 1:
-            var inputCell = document.querySelector(`.s${i} .g${j+3}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 2:
-            var inputCell = document.querySelector(`.s${i} .g${j+6}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 3:
-            var inputCell = document.querySelector(`.s${i+3} .g${j}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 4:
-            var inputCell = document.querySelector(`.s${i+3} .g${j+3}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 5:
-            var inputCell = document.querySelector(`.s${i+3} .g${j+6}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 6:
-            var inputCell = document.querySelector(`.s${i+6} .g${j}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 7:
-            var inputCell = document.querySelector(`.s${i+6} .g${j+3}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          case 8:
-            var inputCell = document.querySelector(`.s${i+6} .g${j+6}`);
-            inputCell.value = sudokuGrid[box][cell];
-            cell++
-            break;
-          
-        }
+        console.log("box is " + box +" cell is " + cell);
+        let i_offset = Math.floor(box / 3) * 3
+        let j_offset = Math.floor(box % 3) * 3
+        console.log("j offset is " + i_offset + " i offset is " + j_offset);
+        var inputCell = document.querySelector(`.s${i + i_offset} .g${j + j_offset}`);
+        console.log(sudokuGrid[box][cell]);
         
+        inputCell.value = sudokuGrid[box][cell];
+        cell++
+
       }
     }
     cell=0;
@@ -517,7 +234,7 @@ solverBtn.addEventListener("click", solver);
 function solver(){
   let background = document.querySelector(`body`);
   console.log("this is the partial", partialgrid);
-  console.log("this is hte full", fullGrid);
+  console.log("this is the full", fullGrid);
   function compareGrids(fullGrid, partialgrid) {
     // Iterate over every row and column of the grids
     for (let row = 0; row < 9; row++) {
